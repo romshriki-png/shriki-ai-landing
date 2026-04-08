@@ -49,6 +49,29 @@ export default function Stats() {
 
       <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 1 }}>
 
+        {/* Desktop-only header */}
+        {!isMobile && (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            style={{ textAlign: "center", marginBottom: 48 }}
+          >
+            <h2
+              style={{
+                fontSize: "clamp(28px, 3vw, 40px)",
+                fontWeight: 800,
+                color: "#fff",
+                letterSpacing: "-0.02em",
+                marginBottom: 12,
+              }}
+            >
+              המספרים מדברים בעד עצמם
+            </h2>
+          </motion.div>
+        )}
+
         <div
           style={{
             display: "grid",
@@ -132,6 +155,27 @@ export default function Stats() {
             </motion.div>
           ))}
         </div>
+
+        {/* Desktop-only footer line */}
+        {!isMobile && (
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            style={{
+              textAlign: "center",
+              marginTop: 40,
+              color: "rgba(255,255,255,0.35)",
+              fontSize: 14,
+              fontFamily: "'Heebo', sans-serif",
+              fontWeight: 300,
+              letterSpacing: "0.02em",
+            }}
+          >
+            כל נתון מבוסס על פרויקטים אמיתיים — לא הבטחות שיווקיות.
+          </motion.p>
+        )}
       </div>
     </section>
   );
