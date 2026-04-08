@@ -49,18 +49,18 @@ export default function Stats() {
 
       <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 1 }}>
 
-        {/* Desktop-only header */}
-        {!isMobile && (
+        {/* Header */}
+        {(
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            style={{ textAlign: "center", marginBottom: 48, direction: "ltr" }}
+            style={{ textAlign: "center", marginBottom: isMobile ? 28 : 48, direction: "ltr" }}
           >
             <h2
               style={{
-                fontSize: "clamp(28px, 3vw, 40px)",
+                fontSize: isMobile ? "clamp(22px, 6vw, 28px)" : "clamp(28px, 3vw, 40px)",
                 fontWeight: 800,
                 color: "#fff",
                 letterSpacing: "-0.02em",
@@ -158,8 +158,8 @@ export default function Stats() {
           ))}
         </div>
 
-        {/* Desktop-only footer line */}
-        {!isMobile && (
+        {/* Footer line */}
+        {(
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -167,9 +167,9 @@ export default function Stats() {
             transition={{ duration: 0.5, delay: 0.3 }}
             style={{
               textAlign: "center",
-              marginTop: 40,
+              marginTop: isMobile ? 24 : 40,
               color: "rgba(255,255,255,0.35)",
-              fontSize: 14,
+              fontSize: isMobile ? 13 : 14,
               fontFamily: "'Heebo', sans-serif",
               fontWeight: 300,
               letterSpacing: "0.02em",

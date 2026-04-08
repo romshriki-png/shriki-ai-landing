@@ -212,10 +212,22 @@ interface BentoCardProps {
 function BentoCard({ gridStyle, tag, title, description, accent, delay, large, isMobile }: BentoCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 24, boxShadow: "0 0 0px rgba(0,194,194,0)" }}
+      whileInView={
+        isMobile
+          ? {
+              opacity: 1,
+              y: 0,
+              boxShadow: [
+                "0 0 0px rgba(0,194,194,0)",
+                "0 0 32px rgba(0,194,194,0.3)",
+                "0 0 0px rgba(0,194,194,0)",
+              ],
+            }
+          : { opacity: 1, y: 0 }
+      }
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
+      transition={{ duration: 0.6, delay, boxShadow: { duration: 1.2, delay: delay + 0.3 } }}
       whileHover={{
         borderColor: `${accent}55`,
         boxShadow: `0 0 40px ${accent}15`,

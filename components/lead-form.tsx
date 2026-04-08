@@ -222,7 +222,7 @@ export default function LeadForm() {
                   background: isSubmitting ? "rgba(0,194,194,0.5)" : "#00C2C2",
                   color: "#080C1F",
                   fontWeight: 700,
-                  fontSize: 16,
+                  fontSize: "clamp(13px, 3.5vw, 16px)",
                   padding: "16px",
                   borderRadius: 12,
                   border: "none",
