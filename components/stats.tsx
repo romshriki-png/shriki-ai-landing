@@ -56,7 +56,7 @@ export default function Stats() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            style={{ textAlign: "center", marginBottom: 48 }}
+            style={{ textAlign: "center", marginBottom: 48, direction: "ltr" }}
           >
             <h2
               style={{
@@ -65,6 +65,7 @@ export default function Stats() {
                 color: "#fff",
                 letterSpacing: "-0.02em",
                 marginBottom: 12,
+                direction: "rtl",
               }}
             >
               המספרים מדברים בעד עצמם
@@ -148,6 +149,7 @@ export default function Stats() {
                   color: "rgba(255,255,255,0.5)",
                   fontSize: isMobile ? 12 : 14,
                   lineHeight: 1.5,
+                  direction: "rtl",
                 }}
               >
                 {isMobile ? stat.labelMobile : stat.label}

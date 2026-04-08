@@ -173,6 +173,20 @@ export default function Services() {
                 fontSize: 13,
                 fontFamily: "'Heebo', sans-serif",
                 whiteSpace: "nowrap",
+                cursor: "default",
+                transition: "all 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget;
+                el.style.border = "1px solid rgba(0,194,194,0.6)";
+                el.style.background = "rgba(0,194,194,0.12)";
+                el.style.color = "#00C2C2";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget;
+                el.style.border = "1px solid rgba(0,194,194,0.18)";
+                el.style.background = "rgba(0,194,194,0.05)";
+                el.style.color = "rgba(255,255,255,0.5)";
               }}
             >
               {tag}
