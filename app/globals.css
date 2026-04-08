@@ -1,26 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Secular+One&family=JetBrains+Mono:wght@300;400&family=Space+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #080C1F;
+  --navy: #0B0F2E;
+  --navy2: #141937;
+  --navy3: #1B2147;
+  --teal: #00C2C2;
+  --teal2: #00A5A5;
+  --teal-glow: rgba(0, 194, 194, 0.15);
+  --teal-border: rgba(0, 194, 194, 0.12);
+  --white: #FFFFFF;
+  --text-mid: rgba(255, 255, 255, 0.75);
+  --text-dim: rgba(255, 255, 255, 0.5);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Heebo', sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 194, 194, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 194, 194, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.glass {
+  background: rgba(20, 25, 55, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--teal-border);
+}
+
+.teal-glow {
+  box-shadow: 0 0 32px rgba(0, 194, 194, 0.2);
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to left, transparent, var(--teal), transparent);
+  animation: scan 3s ease-in-out infinite;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 20;
+}
+
+@keyframes scan {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Secular One', 'Heebo', sans-serif;
 }
